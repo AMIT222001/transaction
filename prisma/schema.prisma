@@ -1,0 +1,25 @@
+
+generator client {
+  provider = "prisma-client-js"
+  
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Transaction {
+  id           Int      @id @default(autoincrement())
+  userKey      String   // wallet address of sender
+  from         String
+  to           String
+  amount       String
+  txHash       String
+  gasLimit     String
+  gasPrice     String
+  gasUsed      String
+  status       String   // pending / confirmed / failed
+  timestamp    DateTime @default(now())
+}
+
