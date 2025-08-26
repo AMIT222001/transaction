@@ -10,16 +10,19 @@ datasource db {
 }
 
 model Transaction {
-  id           Int      @id @default(autoincrement())
-  userKey      String   // wallet address of sender
-  from         String
-  to           String
-  amount       String
-  txHash       String
-  gasLimit     String
-  gasPrice     String
-  gasUsed      String
-  status       String   // pending / confirmed / failed
-  timestamp    DateTime @default(now())
+  id                   Int     @id @default(autoincrement())
+  userKey              String
+  from                 String
+  to                   String
+  amount               String
+  txHash               String
+  gasLimit             String
+  maxFeePerGas         String?   // optional is better
+  maxPriorityFeePerGas String?
+  gasPrice             String?
+  gasUsed              String
+  status               String
 }
+
+
 
